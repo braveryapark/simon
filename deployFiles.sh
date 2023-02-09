@@ -3,9 +3,9 @@
 while getopts k:h:s: flag
 do
     case "${flag}" in
-        k) key= ${OPTARG};;
-        h) hostname= ${OPTARG};;
-        s) service= ${OPTARG};;
+        k) key=${OPTARG};;
+        h) hostname=${OPTARG};;
+        s) service=${OPTARG};;
     esac
 done
 
@@ -25,6 +25,5 @@ mkdir -p services/${service}/public
 ENDSSH
 
 # Step 2
-printf "\n---->copy the distribution package to the target.\n"
+printf "\n----> Copy the distribution package to the target.\n"
 scp -r -i "$key" * ubuntu@$hostname:services/$service/public
-
