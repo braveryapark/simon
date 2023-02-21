@@ -6,41 +6,98 @@
         <title>Simon</title>
         <link rel="icon" href="favicon copy.ico" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+        <style>
+          h1{
+                color: blueviolet;
+                text-align: center
+            }
+            h2{
+                color: blueviolet;
+            }
+            h4{
+                color: rgb(3, 3, 148)violet;
+                font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+            .box{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 5%;
+            }
+            a{
+                color: black
+            }
+            .players_scores{
+              display:flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+            }
+            .players{
+              display:flex;
+              size: 50%;
+              margin: 3%;
+            }
+            .scores{
+              display: flex;
+              size:50%;
+              margin: 3%;
+            }
+            label{
+              font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+              font-size: 120%;
+            }
+            .buttons{
+              display: flex;
+              justify-content: center;
+
+            }
+            .circle{
+              box-shadow: 5px 5px #d6d6d6;
+              border-radius: 6px;
+              background-color: white;
+            }
+
+        </style>
+      </head>
     <body>
         <header>
             <h1>Simon<sup>&reg;</sup></h1>
-            <nav>
-                <menu>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="play.html">Play</a></li>
-                    <li><a href="scores.html">Scores</a></li>
-                    <li><a href="about.html">About</a></li>
+            <div class=box>
+              <nav>
+                  <menu>
+                      <button class="btn btn-danger"><a href="index.html">Home</a></button>
+                      <button class="btn btn-primary"><a href="play.html">Play</a></button>
+                      <button class="btn btn-warning"><a href= "scores.html">Scores</a></button>
+                      <button class="btn btn-success"><a href= "about.html">About</a></button>
                   </menu>
-            </nav>
+              </nav>
+          </div>
             <hr />
         </header>
 
         <main>
-            <div class="players">
-                Player:
-                <span class="player-name">Mystery Player</span>
+          <div class="players_scores"> 
+          <div class="players">
+                <label for="person">Player </label>
+                <input type="text" id="person" value="Mystery Player" readonly />
             </div>
 
             <br />
 
-            <div>
-                <label for="count">Score</label>
+            <div class="scores">
+                <label for="count">Score </label>
                 <input type="text" id="count" value="--" readonly />
             </div>
+          </div> 
 
             <br />
 
-            <div>
+            <div class=buttons>
                 <table>
                     <tr>
                         <td>
-                            <button>
+                            <button class="circle">
                                 <svg
                                     aria-hidden="true"
                                     viewBox="0 0 100 100"
@@ -52,7 +109,7 @@
                             </button>
                         </td>
                         <td>
-                            <button>
+                            <button class="circle">
                               <svg
                                 aria-hidden="true"
                                 viewBox="0 0 100 100"
@@ -66,7 +123,7 @@
                     </tr>
                     <tr>
                         <td>
-                          <button>
+                          <button class="circle">
                             <svg
                               aria-hidden="true"
                               viewBox="0 0 100 100"
@@ -78,7 +135,7 @@
                           </button>
                         </td>
                         <td>
-                          <button>
+                          <button class="circle">
                             <svg
                               aria-hidden="true"
                               viewBox="0 0 100 100"
@@ -95,9 +152,10 @@
         </main>
         <footer>
             <hr />
-            <span class="text-reset">Author Name(s)</span>
+            <span class="text-reset">Avery Park</span>
             <br />
-            <a href="https://github.com/braveryapark/simon">Github</a>
+            <button class = "btn btn-info"><a href= "https://github.com/braveryapark/simon">My Github</a></button>
+
         </footer>
     </body>
 </html>
