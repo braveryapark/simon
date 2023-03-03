@@ -123,7 +123,7 @@ class Game {
         if(scoresText) {
             scores = JSON.parse(scoresText);
         }
-        scores = this.updateScores(userName, score, scores));
+        scores = this.updateScores(userName, score, scores);
     }
     updateScores(userName, score, scores) {
         const date = new Date().toLocaleDateString();
