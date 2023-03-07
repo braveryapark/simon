@@ -1,9 +1,12 @@
 function loadScores() {
     let scores = [];
     const scoresText = localStorage.getItem('scores');
+    console.log(scoresText);
     if(scoresText){
         scores = JSON.parse(scoresText);
     }
+    let names = [];
+    const usernamesText = localStorage.getItem('userName');
 
     const tableBodyEl = document.querySelector('#scores');
 
@@ -12,17 +15,19 @@ function loadScores() {
             const positionTdEl = document.createElement('td');
             const nameTdEl = document.createElement('td');
             const scoreTdEl = document.createElement('td');
-            const dataTdEl = document.createElement('td');
+            const dateTdEl = document.createElement('td');
 
             positionTdEl.textContent = i + 1;
             nameTdEl.textContent = score.name;
-            scoreTdEl.textContent = score.date;
+            scoreTdEl.textContent = score.score;
+            dateTdEl.textContent = score.date;
+
 
             const rowEl = document.createElement('tr');
             rowEl.appendChild(positionTdEl);
             rowEl.appendChild(nameTdEl);
             rowEl.appendChild(scoreTdEl);
-            rowElEl.appendChild(dateTdEl);
+            rowEl.appendChild(dateTdEl);
 
             tableBodyEl.appendChild(rowEl);
         }
