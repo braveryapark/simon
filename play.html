@@ -6,6 +6,8 @@
         <title>Simon</title>
         <link rel="icon" href="favicon copy.ico" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
         <style>
           h1{
                 color: blueviolet;
@@ -24,8 +26,54 @@
                 justify-content: center;
                 margin-right: 5%;
             }
+            body {
+              display: flex;
+              flex-direction: column;
+              min-width: 300px;
+              justify-content: center;
+            }
+            .bg-scondary {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-around;
+              background-color: white;
+            }
+            .game {
+              width: 20vw;
+              height: 20vw;   
+              justify-content: center;         
+            }
             a{
                 color: black
+            }
+            .button-container {
+              width: 100%;
+              height: 100%;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 1fr 1fr;
+              gap: 20px;
+            }
+            .button-top-left {
+              border-radius: 100% 0 0 0;
+              background-color: green;
+              border: thick solid rgb(36, 53, 0);
+            }
+            .button-top-right {
+              border-radius: 0 100% 0 0;
+              background-color: red;
+              border: thick solid rgb(83, 12, 12);
+            }
+            .button-bottom-left {
+              border-radius: 0 0 0 100%;
+              background-color: yellow;
+              border: thick solid rgb(94, 90, 10);
+            }
+            .button-bottom-right {
+              border-radius: 0 0 100% 0;
+              background-color: blue;
+              border: thick solid rgb(27, 14, 100);
             }
             .players_scores{
               display:flex;
@@ -47,17 +95,9 @@
               font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
               font-size: 120%;
             }
-            .buttons{
-              display: flex;
+            .controls-center{
               justify-content: center;
-
             }
-            .circle{
-              box-shadow: 5px 5px #d6d6d6;
-              border-radius: 6px;
-              background-color: white;
-            }
-
         </style>
       </head>
     <body>
@@ -76,79 +116,24 @@
             <hr />
         </header>
 
-        <main>
-          <div class="players_scores"> 
+        <main class="bg-scondary">
           <div class="players">
-                <label for="person">Player </label>
-                <input type="text" id="person" value="Mystery Player" readonly />
+            Player:
+            <span class="player-name"></span>
+          </div>
+          <div class="game">
+            <div class="button-container">
+              <button id="green" class="game-button button-top-left" onclick="game.pressButton(this)"></button>
+              <button id="red" class="game-button button-top-right" onclick="game.pressButton(this)"></button>
+              <button id="yellow" class="game-button button-bottom-left" onclick="game.pressButton(this)"></button>
+              <button id="blue" class="game-button button-bottom-right" onclick="game.pressButton(this)"></button>
             </div>
-
-            <br />
-
-            <div class="scores">
-                <label for="count">Score </label>
-                <input type="text" id="count" value="--" readonly />
-            </div>
-          </div> 
-
-            <br />
-
-            <div class=buttons>
-                <table>
-                    <tr>
-                        <td>
-                            <button class="circle">
-                                <svg
-                                    aria-hidden="true"
-                                    viewBox="0 0 100 100"
-                                    height="100"
-                                    width="100"
-                                    >
-                                    <path d="M 95,5 95,95 5,95 Q 5,5 95,5" fill="green" />
-                                </svg>
-                            </button>
-                        </td>
-                        <td>
-                            <button class="circle">
-                              <svg
-                                aria-hidden="true"
-                                viewBox="0 0 100 100"
-                                height="100"
-                                width="100"
-                              >
-                                <path d="M5,5 5,95 95,95 Q 95,5 5,5" fill="red" />
-                              </svg>
-                            </button>
-                          </td>
-                    </tr>
-                    <tr>
-                        <td>
-                          <button class="circle">
-                            <svg
-                              aria-hidden="true"
-                              viewBox="0 0 100 100"
-                              height="100"
-                              width="100"
-                            >
-                              <path d="M5,5 95,5 95,95 Q 5,95 5,5" fill="blue" />
-                            </svg>
-                          </button>
-                        </td>
-                        <td>
-                          <button class="circle">
-                            <svg
-                              aria-hidden="true"
-                              viewBox="0 0 100 100"
-                              height="100"
-                              width="100"
-                            >
-                              <path d="M95,5 5,5 5,95 Q 95,95 95,5" fill="yellow" />
-                            </svg>
-                          </button>
-                        </td>
-                      </tr>
-                </table>
-            </div>
+          </div>
+          <div class="controls-center">
+            <div class="game-name">Simon<sup>&reg;</sup></div>
+            <div id="score" class="score center">--</div>
+            <button class="btn btn-primary" onclick="game.reset()">Reset</button>
+          </div>
         </main>
         <footer>
             <hr />
@@ -157,5 +142,6 @@
             <button class = "btn btn-info"><a href= "https://github.com/braveryapark/simon">My Github</a></button>
 
         </footer>
+        <script src="play.js"></script>
     </body>
 </html>
